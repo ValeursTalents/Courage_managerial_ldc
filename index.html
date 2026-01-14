@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Courage Managérial - Valeurs et Talents</title>
+    <meta name="description" content="Formation intensive pour développer une posture d'autorité juste et bienveillante.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* --- CHARTE GRAPHIQUE --- */
+        :root {
+            --vert: #94c11f;
+            --marron: #473c32;
+            --orange: #ee7601;
+            --noir: #000000;
+            --blanc: #FFFFFF;
+            --gris-clair: #f4f4f4;
+        }
+
+        /* --- RESET & BASE --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--noir);
+            background-color: var(--blanc);
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--blanc);
+            padding: 1rem 5%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .logo { max-height: 80px; margin-bottom: 1rem; }
+        h1 { color: var(--marron); font-size: 2rem; margin-bottom: 0.5rem; text-transform: uppercase; }
+        .accroche { color: var(--vert); font-weight: bold; font-size: 1.2rem; max-width: 800px; margin: 0 auto; }
+
+        /* --- BANNIERE --- */
+        .hero {
+            /* Placeholder pour la prévisualisation - Remplacez par 'banniere.jpg' sur GitHub */
+            background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(71, 60, 50, 0.4); /* Filtre marron transparent */
+        }
+
+        /* --- CONTENEUR PRINCIPAL --- */
+        main { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+
+        /* --- SECTION INFOS PRATIQUES --- */
+        .infos-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        @media(min-width: 768px) { .infos-grid { grid-template-columns: 1fr 1fr; } }
+
+        .info-card {
+            background: var(--gris-clair);
+            padding: 1.5rem;
+            border-left: 5px solid var(--vert);
+            border-radius: 4px;
+        }
+        .info-card h3 { color: var(--marron); margin-bottom: 1rem; display: flex; align-items: center; }
+        .info-card h3 i { color: var(--orange); margin-right: 10px; }
+        
+        /* Map Responsive */
+        .map-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Ratio 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+        .map-container iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%; border: 0;
+        }
+
+        /* --- PROGRAMME (ACCORDÉON) --- */
+        .programme-section { margin-bottom: 3rem; }
+        .section-title {
+            text-align: center;
+            color: var(--marron);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--orange);
+            margin: 0.5rem auto 0;
+        }
+
+        details {
+            background: var(--blanc);
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        summary {
+            background: var(--vert);
+            color: var(--blanc);
+            padding: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        summary:hover { background-color: #7fa816; }
+        summary::after { content: '+'; font-size: 1.5rem; }
+        details[open] summary::after { content: '-'; }
+        .module-content { padding: 1.5rem; border-top: 1px solid #ddd; }
+        .badge-heure {
+            background: var(--marron);
+            color: var(--blanc);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        /* --- TELECHARGEMENTS --- */
+        .download-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--gris-clair);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--orange);
+            color: var(--blanc);
+            padding: 1rem 2rem;
+            margin: 0.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.2s, background 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            background-color: #d16600;
+        }
+        .btn i { margin-right: 8px; }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--marron);
+            color: var(--blanc);
+            padding: 2rem 5%;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        footer a { text-decoration: underline; }
+        footer a:hover { color: var(--vert); }
+        .contact-box { margin-bottom: 1.5rem; }
+        .contact-box p { margin: 0.5rem 0; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- Placeholder pour la prévisualisation - Remplacez par 'logo.png' sur GitHub -->
+        <img src="https://via.placeholder.com/200x80/ffffff/94c11f?text=LOGO+V%26T" alt="Logo Valeurs et Talents" class="logo">
+        <h1>Courage Managérial</h1>
+        <p class="accroche">
+            "Une formation intensive pour développer une posture d'autorité juste et bienveillante."
+        </p>
+    </header>
+
+    <div class="hero" role="img" aria-label="Illustration travail d'équipe et leadership"></div>
+
+    <main>
+        <section id="infos">
+            <h2 class="section-title">Informations Pratiques</h2>
+            <div class="infos-grid">
+                <div class="info-card">
+                    <h3><i class="fas fa-calendar-alt"></i> Quand ?</h3>
+                    <p><strong>Date :</strong> Demain</p>
+                    <p><strong>Horaires :</strong> 08h30 - 17h30</p>
+                    <br>
+                    <h3><i class="fas fa-map-marker-alt"></i> Où ?</h3>
+                    <p>3 ter avenue Des villages</p>
+                    <p>44470 Carquefou</p>
+                    <p><em>(Dans les locaux du client)</em></p>
+                </div>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2703.546377312345!2d-1.5034876!3d47.3428989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4805e50505b38555%3A0x6291610486663246!2s3%20Ter%20Av.%20des%20Villages%2C%2044470%20Carquefou!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Carte localisation formation">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="programme" class="programme-section">
+            <h2 class="section-title">Programme de la formation</h2>
+            
+            <details>
+                <summary>Introduction & Création du climat</summary>
+                <div class="module-content">
+                    <span class="badge-heure">08h30 - 08h50</span>
+                    <p><strong>Objectif :</strong> Créer un climat de confiance, recueillir les attentes, présenter les objectifs.</p>
+                    <p><em>Méthode : Présentation croisée, icebreaker dynamique, recueil des attentes.</em></p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Les Essentiels du Courage Managérial</summary>
+                <div class="module-content">
+                    <span class="badge-heure">08h50 - 09h30</span>
+                    <p><strong>Objectif :</strong> Comprendre les concepts clés (autorité vs autoritarisme, cadre managérial).</p>
+                    <p><em>Contenu : Qu'est-ce que l'autorité ? Importance de tenir son cadre. Lien avec la fiche de poste.</em></p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Classe Inversée : Analyse de situations</summary>
+                <div class="module-content">
+                    <span class="badge-heure">09h30 - 10h10</span>
+                    <p><strong>Objectif :</strong> Analyser des situations concrètes illustrant des écarts de posture managériale.</p>
+                    <p><em>Méthode : Travail en sous-groupes sur des fiches outils, préparation de la restitution.</em></p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Restitution & Posture d'autorité</summary>
+                <div class="module-content">
+                    <span class="badge-heure">10h30 - 12h10</span>
+                    <p><strong>Objectif :</strong> Adopter une posture d'autorité juste et bienveillante en situation sensible.</p>
+                    <p><em>Méthode : Mises en situation jouées en grand groupe et compléments du formateur.</em></p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Conclusion & Mise en action</summary>
+                <div class="module-content">
+                    <span class="badge-heure">12h10 - 12h20</span>
+                    <p><strong>Objectif :</strong> Évaluer la formation et définir un engagement personnel.</p>
+                    <p><em>Méthode : Déclusion, tour de table et plan d'action individuel.</em></p>
+                </div>
+            </details>
+        </section>
+
+        <section id="telechargement" class="download-section">
+            <h2 class="section-title">Documents Stagiaires</h2>
+            <p style="margin-bottom: 1.5rem;">Retrouvez ici tous les supports nécessaires au bon déroulement de la session.</p>
+            <div>
+                <!-- Les liens ne fonctionneront pas en prévisualisation car les fichiers PDF ne sont pas présents ici -->
+                <a href="./programme.pdf" target="_blank" class="btn">
+                    <i class="fas fa-file-pdf"></i> Télécharger le Programme
+                </a>
+                <a href="./livret-stagiaire.pdf" target="_blank" class="btn">
+                    <i class="fas fa-book-open"></i> Livret Stagiaire
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="contact-box">
+            <h3>Contact Formateur</h3>
+            <p><strong>Mickael Loeuille</strong></p>
+            <p><i class="fas fa-phone"></i> 06 81 25 53 88</p>
+            <p><i class="fas fa-envelope"></i> mickael.loeuille@gmail.com</p>
+        </div>
+        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.2); margin: 1rem 0;">
+        <p>
+            <i class="fas fa-universal-access"></i>
+            <a href="https://www.valeurs-et-talents.fr/qui-sommes-nous/nos-engagements-sur-le-handicap/" target="_blank">
+                Politique d'inclusion et gestion du handicap
+            </a>
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">© Valeurs et Talents - Tous droits réservés</p>
+    </footer>
+
+</body>
+</html>
